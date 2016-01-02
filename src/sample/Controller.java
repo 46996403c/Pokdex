@@ -1,13 +1,13 @@
 package sample;
 
 import javafx.application.Platform;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 
 import java.util.Optional;
 
 public class Controller {
-
+    public ImageView IVsprite;
     public void Exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Apagar Pokedex");
@@ -18,5 +18,11 @@ public class Controller {
             Platform.exit();
         }
     }
-
+    public void Info(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText("Look, an Information Dialog");
+        alert.setContentText("I have a great message for you!");
+        alert.showAndWait();
+    }
 }

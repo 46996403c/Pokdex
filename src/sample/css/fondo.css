@@ -1,3 +1,6 @@
 .background {
     -fx-background-color: transparent;
 }
+.bgElementRed {
+    -fx-background-color: red;
+}
