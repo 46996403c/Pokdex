@@ -3,27 +3,181 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/fondo.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="-2.0" layoutY="1.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0">
+      <ImageView fx:id="pokedex" fitHeight="400.0" fitWidth="600.0" layoutX="-2.0" layoutY="1.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0">
          <image>
             <Image url="@imagenes/pokedex2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="IVsprite" fitHeight="129.0" fitWidth="213.0" layoutX="42.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="111.0" />
-      <Button layoutX="359.0" layoutY="334.0" mnemonicParsing="false" onAction="#Info" prefHeight="37.0" prefWidth="90.0" styleClass="background" text="Informacion" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="334.0" />
-      <Button layoutX="465.0" layoutY="334.0" mnemonicParsing="false" onAction="#Exit" prefHeight="37.0" prefWidth="83.0" styleClass="background" text="Apagar" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="334.0" />
-      <Button layoutX="61.0" layoutY="334.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="115.0" styleClass="background" text="Pokemon Random" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="334.0" />
-      <TextField layoutX="363.0" layoutY="210.0" prefHeight="30.0" prefWidth="177.0" promptText="Escribe un Pokemon" styleClass="bgElementRed" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="363.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="210.0" />
-      <MenuButton layoutX="362.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" styleClass="bgElementRed" text="Selecciona un Pokemon" AnchorPane.bottomAnchor="135.0" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="240.0">
+      <Button fx:id="BTinfo" layoutX="359.0" layoutY="334.0" mnemonicParsing="false" onAction="#Info" prefHeight="37.0" prefWidth="90.0" styleClass="background" text="Informacion" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="334.0" />
+      <Button fx:id="BTapagar" layoutX="465.0" layoutY="334.0" mnemonicParsing="false" onAction="#Exit" prefHeight="37.0" prefWidth="83.0" styleClass="background" text="Apagar" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="334.0" />
+      <Button fx:id="BTrandom" layoutX="61.0" layoutY="334.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="115.0" styleClass="background" text="Pokemon Random" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="334.0" />
+      <TextField fx:id="TFescribirPokemon" layoutX="363.0" layoutY="210.0" prefHeight="30.0" prefWidth="177.0" promptText="Escribe un Pokemon" styleClass="bgElementRed" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="363.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="210.0" />
+      <MenuButton fx:id="MBseleccionarPokemon" layoutX="362.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="177.0" styleClass="bgElementRed" text="Selecciona un Pokemon" AnchorPane.bottomAnchor="135.0" AnchorPane.leftAnchor="362.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="240.0">
         <items>
-          <MenuItem mnemonicParsing="false" styleClass="bgElementRed" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem fx:id="MIBulbasaur" mnemonicParsing="false" onAction="#prueba" text="Bulbasaur" />
+          <MenuItem fx:id="MIIvysaur" mnemonicParsing="false" onAction="#prueba" text="Ivysaur" />
+          <MenuItem fx:id="MIVenusaur" mnemonicParsing="false" onAction="#prueba" text="Venusaur" />
+          <MenuItem fx:id="MICharmander" mnemonicParsing="false" onAction="#prueba" text="Charmander" />
+          <MenuItem fx:id="MICharmeleon" mnemonicParsing="false" onAction="#prueba" text="Charmeleon" />
+          <MenuItem fx:id="MICharizard" mnemonicParsing="false" onAction="#prueba" text="Charizard" />
+          <MenuItem fx:id="MISquirtle" mnemonicParsing="false" onAction="#prueba" text="Squirtle" />
+          <MenuItem fx:id="MIWartortle" mnemonicParsing="false" onAction="#prueba" text="Wartortle" />
+          <MenuItem fx:id="MIBlastoise" mnemonicParsing="false" onAction="#prueba" text="Blastoise" />
+          <MenuItem fx:id="MICaterpie" mnemonicParsing="false" onAction="#prueba" text="Caterpie" />
+          <MenuItem fx:id="MIMetapod" mnemonicParsing="false" onAction="#prueba" text="Metapod" />
+          <MenuItem fx:id="MIButterfree" mnemonicParsing="false" onAction="#prueba" text="Butterfree" />
+          <MenuItem fx:id="MIWeedle" mnemonicParsing="false" onAction="#prueba" text="Weedle" />
+          <MenuItem fx:id="MIKakuna" mnemonicParsing="false" onAction="#prueba" text="Kakuna" />
+          <MenuItem fx:id="MIBeedrill" mnemonicParsing="false" onAction="#prueba" text="Beedrill" />
+          <MenuItem fx:id="MIPidgey" mnemonicParsing="false" onAction="#prueba" text="Pidgey" />
+          <MenuItem fx:id="MIPidgeotto" mnemonicParsing="false" onAction="#prueba" text="Pidgeotto" />
+          <MenuItem fx:id="MIPidgeot" mnemonicParsing="false" onAction="#prueba" text="Pidgeot" />
+          <MenuItem fx:id="MIRattata" mnemonicParsing="false" onAction="#prueba" text="Rattata" />
+          <MenuItem fx:id="MIRaticate" mnemonicParsing="false" onAction="#prueba" text="Raticate" />
+          <MenuItem fx:id="MISpearow" mnemonicParsing="false" onAction="#prueba" text="Spearow" />
+          <MenuItem fx:id="MIFearow" mnemonicParsing="false" onAction="#prueba" text="Fearow" />
+          <MenuItem fx:id="MIEkans" mnemonicParsing="false" onAction="#prueba" text="Ekans" />
+          <MenuItem fx:id="MIArbok" mnemonicParsing="false" onAction="#prueba" text="Arbok" />
+          <MenuItem fx:id="MIPikachu" mnemonicParsing="false" onAction="#prueba" text="Pikachu" />
+          <MenuItem fx:id="MIRaichu" mnemonicParsing="false" onAction="#prueba" text="Raichu" />
+          <MenuItem fx:id="MISandshrew" mnemonicParsing="false" onAction="#prueba" text="Sandshrew" />
+          <MenuItem fx:id="MISandslash" mnemonicParsing="false" onAction="#prueba" text="Sandslash" />
+          <MenuItem fx:id="MINidoran_Hembra" mnemonicParsing="false" onAction="#prueba" text="Nidoran♀" />
+          <MenuItem fx:id="MINidorina" mnemonicParsing="false" onAction="#prueba" text="Nidorina" />
+          <MenuItem fx:id="MINidoqueen" mnemonicParsing="false" onAction="#prueba" text="Nidoqueen" />
+          <MenuItem fx:id="MINidoran_Macho" mnemonicParsing="false" onAction="#prueba" text="Nidoran♂" />
+          <MenuItem fx:id="MINidorino" mnemonicParsing="false" onAction="#prueba" text="Nidorino" />
+          <MenuItem fx:id="MINidoking" mnemonicParsing="false" onAction="#prueba" text="Nidoking" />
+          <MenuItem fx:id="MIClefairy" mnemonicParsing="false" onAction="#prueba" text="Clefairy" />
+          <MenuItem fx:id="MIClefable" mnemonicParsing="false" onAction="#prueba" text="Clefable" />
+          <MenuItem fx:id="MIVulpix" mnemonicParsing="false" onAction="#prueba" text="Vulpix" />
+          <MenuItem fx:id="MINinetales" mnemonicParsing="false" onAction="#prueba" text="Ninetales" />
+          <MenuItem fx:id="MIJigglypuff" mnemonicParsing="false" onAction="#prueba" text="Jigglypuff" />
+          <MenuItem fx:id="MIWigglytuff" mnemonicParsing="false" onAction="#prueba" text="Wigglytuff" />
+          <MenuItem fx:id="MIZubat" mnemonicParsing="false" onAction="#prueba" text="Zubat" />
+          <MenuItem fx:id="MIGolbat" mnemonicParsing="false" onAction="#prueba" text="Golbat" />
+          <MenuItem fx:id="MIOddish" mnemonicParsing="false" onAction="#prueba" text="Oddish" />
+          <MenuItem fx:id="MIGloom" mnemonicParsing="false" onAction="#prueba" text="Gloom" />
+          <MenuItem fx:id="MIVileplume" mnemonicParsing="false" onAction="#prueba" text="Vileplume" />
+          <MenuItem fx:id="MIParas" mnemonicParsing="false" onAction="#prueba" text="Paras" />
+          <MenuItem fx:id="MIParasect" mnemonicParsing="false" onAction="#prueba" text="Parasect" />
+          <MenuItem fx:id="MIVenonat" mnemonicParsing="false" onAction="#prueba" text="Venonat" />
+          <MenuItem fx:id="MIVenomoth" mnemonicParsing="false" onAction="#prueba" text="Venomoth" />
+          <MenuItem fx:id="MIDiglett" mnemonicParsing="false" onAction="#prueba" text="Diglett" />
+          <MenuItem fx:id="MIDugtrio" mnemonicParsing="false" onAction="#prueba" text="Dugtrio" />
+          <MenuItem fx:id="MIMeowth" mnemonicParsing="false" onAction="#prueba" text="Meowth" />
+          <MenuItem fx:id="MIPersian" mnemonicParsing="false" onAction="#prueba" text="Persian" />
+          <MenuItem fx:id="MIPsyduck" mnemonicParsing="false" onAction="#prueba" text="Psyduck" />
+          <MenuItem fx:id="MIGolduck" mnemonicParsing="false" onAction="#prueba" text="Golduck" />
+          <MenuItem fx:id="MIMankey" mnemonicParsing="false" onAction="#prueba" text="Mankey" />
+          <MenuItem fx:id="MIPrimeape" mnemonicParsing="false" onAction="#prueba" text="Primeape" />
+          <MenuItem fx:id="MIGrowlithe" mnemonicParsing="false" onAction="#prueba" text="Growlithe" />
+          <MenuItem fx:id="MIArcanine" mnemonicParsing="false" onAction="#prueba" text="Arcanine" />
+          <MenuItem fx:id="MIPoliwag" mnemonicParsing="false" onAction="#prueba" text="Poliwag" />
+          <MenuItem fx:id="MIPoliwhirl" mnemonicParsing="false" onAction="#prueba" text="Poliwhirl" />
+          <MenuItem fx:id="MIPoliwrath" mnemonicParsing="false" onAction="#prueba" text="Poliwrath" />
+          <MenuItem fx:id="MIAbra" mnemonicParsing="false" onAction="#prueba" text="Abra" />
+          <MenuItem fx:id="MIKadabra" mnemonicParsing="false" onAction="#prueba" text="Kadabra" />
+          <MenuItem fx:id="MIAlakazam" mnemonicParsing="false" onAction="#prueba" text="Alakazam" />
+          <MenuItem fx:id="MIMachop" mnemonicParsing="false" onAction="#prueba" text="Machop" />
+          <MenuItem fx:id="MIMachoke" mnemonicParsing="false" onAction="#prueba" text="Machoke" />
+          <MenuItem fx:id="MIMachamp" mnemonicParsing="false" onAction="#prueba" text="Machamp" />
+          <MenuItem fx:id="MIBellsprout" mnemonicParsing="false" onAction="#prueba" text="Bellsprout" />
+          <MenuItem fx:id="MIWeepinbell" mnemonicParsing="false" onAction="#prueba" text="Weepinbell" />
+          <MenuItem fx:id="MIVictreebel" mnemonicParsing="false" onAction="#prueba" text="Victreebel" />
+          <MenuItem fx:id="MITentacool" mnemonicParsing="false" onAction="#prueba" text="Tentacool" />
+          <MenuItem fx:id="MITentacruel" mnemonicParsing="false" onAction="#prueba" text="Tentacruel" />
+          <MenuItem fx:id="MIGeodude" mnemonicParsing="false" onAction="#prueba" text="Geodude" />
+          <MenuItem fx:id="MIGraveler" mnemonicParsing="false" onAction="#prueba" text="Graveler" />
+          <MenuItem fx:id="MIGolem" mnemonicParsing="false" onAction="#prueba" text="Golem" />
+          <MenuItem fx:id="MIPonyta" mnemonicParsing="false" onAction="#prueba" text="Ponyta" />
+          <MenuItem fx:id="MIRapidash" mnemonicParsing="false" onAction="#prueba" text="Rapidash" />
+          <MenuItem fx:id="MISlowpoke" mnemonicParsing="false" onAction="#prueba" text="Slowpoke" />
+          <MenuItem fx:id="MISlowbro" mnemonicParsing="false" onAction="#prueba" text="Slowbro" />
+          <MenuItem fx:id="MIMagnemite" mnemonicParsing="false" onAction="#prueba" text="Magnemite" />
+          <MenuItem fx:id="MIMagneton" mnemonicParsing="false" onAction="#prueba" text="Magneton" />
+          <MenuItem fx:id="MIFarfetch_d" mnemonicParsing="false" onAction="#prueba" text="Farfetch'd" />
+          <MenuItem fx:id="MIDoduo" mnemonicParsing="false" onAction="#prueba" text="Doduo" />
+          <MenuItem fx:id="MIDodrio" mnemonicParsing="false" onAction="#prueba" text="Dodrio" />
+          <MenuItem fx:id="MISeel" mnemonicParsing="false" onAction="#prueba" text="Seel" />
+          <MenuItem fx:id="MIDewgong" mnemonicParsing="false" onAction="#prueba" text="Dewgong" />
+          <MenuItem fx:id="MIGrimer" mnemonicParsing="false" onAction="#prueba" text="Grimer" />
+          <MenuItem fx:id="MIMuk" mnemonicParsing="false" onAction="#prueba" text="Muk" />
+          <MenuItem fx:id="MIShellder" mnemonicParsing="false" onAction="#prueba" text="Shellder" />
+          <MenuItem fx:id="MICloyster" mnemonicParsing="false" onAction="#prueba" text="Cloyster" />
+          <MenuItem fx:id="MIGastly" mnemonicParsing="false" onAction="#prueba" text="Gastly" />
+          <MenuItem fx:id="MIHaunter" mnemonicParsing="false" onAction="#prueba" text="Haunter" />
+          <MenuItem fx:id="MIGengar" mnemonicParsing="false" onAction="#prueba" text="Gengar" />
+          <MenuItem fx:id="MIOnix" mnemonicParsing="false" onAction="#prueba" text="Onix" />
+          <MenuItem fx:id="MIDrowzee" mnemonicParsing="false" onAction="#prueba" text="Drowzee" />
+          <MenuItem fx:id="MIHypno" mnemonicParsing="false" onAction="#prueba" text="Hypno" />
+          <MenuItem fx:id="MIKrabby" mnemonicParsing="false" onAction="#prueba" text="Krabby" />
+          <MenuItem fx:id="MIKingler" mnemonicParsing="false" onAction="#prueba" text="Kingler" />
+          <MenuItem fx:id="MIVoltorb" mnemonicParsing="false" onAction="#prueba" text="Voltorb" />
+          <MenuItem fx:id="MIElectrode" mnemonicParsing="false" onAction="#prueba" text="Electrode" />
+          <MenuItem fx:id="MIExeggcute" mnemonicParsing="false" onAction="#prueba" text="Exeggcute" />
+          <MenuItem fx:id="MIExeggutor" mnemonicParsing="false" onAction="#prueba" text="Exeggutor" />
+          <MenuItem fx:id="MICubone" mnemonicParsing="false" onAction="#prueba" text="Cubone" />
+          <MenuItem fx:id="MIMarowak" mnemonicParsing="false" onAction="#prueba" text="Marowak" />
+          <MenuItem fx:id="MIHitmonlee" mnemonicParsing="false" onAction="#prueba" text="Hitmonlee" />
+          <MenuItem fx:id="MIHitmonchan" mnemonicParsing="false" onAction="#prueba" text="Hitmonchan" />
+          <MenuItem fx:id="MILickitung" mnemonicParsing="false" onAction="#prueba" text="Lickitung" />
+          <MenuItem fx:id="MIKoffing" mnemonicParsing="false" onAction="#prueba" text="Koffing" />
+          <MenuItem fx:id="MIWeezing" mnemonicParsing="false" onAction="#prueba" text="Weezing" />
+          <MenuItem fx:id="MIRhyhorn" mnemonicParsing="false" onAction="#prueba" text="Rhyhorn" />
+          <MenuItem fx:id="MIRhydon" mnemonicParsing="false" onAction="#prueba" text="Rhydon" />
+          <MenuItem fx:id="MIChansey" mnemonicParsing="false" onAction="#prueba" text="Chansey" />
+          <MenuItem fx:id="MITangela" mnemonicParsing="false" onAction="#prueba" text="Tangela" />
+          <MenuItem fx:id="MIKangaskhan" mnemonicParsing="false" onAction="#prueba" text="Kangaskhan" />
+          <MenuItem fx:id="MIHorsea" mnemonicParsing="false" onAction="#prueba" text="Horsea" />
+          <MenuItem fx:id="MISeadra" mnemonicParsing="false" onAction="#prueba" text="Seadra" />
+          <MenuItem fx:id="MIGoldeen" mnemonicParsing="false" onAction="#prueba" text="Goldeen" />
+          <MenuItem fx:id="MISeaking" mnemonicParsing="false" onAction="#prueba" text="Seaking" />
+          <MenuItem fx:id="MIStaryu" mnemonicParsing="false" onAction="#prueba" text="Staryu" />
+          <MenuItem fx:id="MIStarmie" mnemonicParsing="false" onAction="#prueba" text="Starmie" />
+          <MenuItem fx:id="MIMr_Mime" mnemonicParsing="false" onAction="#prueba" text="Mr. Mime" />
+          <MenuItem fx:id="MIScyther" mnemonicParsing="false" onAction="#prueba" text="Scyther" />
+          <MenuItem fx:id="MIJynx" mnemonicParsing="false" onAction="#prueba" text="Jynx" />
+          <MenuItem fx:id="MIElectabuzz" mnemonicParsing="false" onAction="#prueba" text="Electabuzz" />
+          <MenuItem fx:id="MIMagmar" mnemonicParsing="false" onAction="#prueba" text="Magmar" />
+          <MenuItem fx:id="MIPinsir" mnemonicParsing="false" onAction="#prueba" text="Pinsir" />
+          <MenuItem fx:id="MITauros" mnemonicParsing="false" onAction="#prueba" text="Tauros" />
+          <MenuItem fx:id="MIMagikarp" mnemonicParsing="false" onAction="#prueba" text="Magikarp" />
+          <MenuItem fx:id="MIGyarados" mnemonicParsing="false" onAction="#prueba" text="Gyarados" />
+          <MenuItem fx:id="MILapras" mnemonicParsing="false" onAction="#prueba" text="Lapras" />
+          <MenuItem fx:id="MIDitto" mnemonicParsing="false" onAction="#prueba" text="Ditto" />
+          <MenuItem fx:id="MIEevee" mnemonicParsing="false" onAction="#prueba" text="Eevee" />
+          <MenuItem fx:id="MIVaporeon" mnemonicParsing="false" onAction="#prueba" text="Vaporeon" />
+          <MenuItem fx:id="MIJolteon" mnemonicParsing="false" onAction="#prueba" text="Jolteon" />
+          <MenuItem fx:id="MIFlareon" mnemonicParsing="false" onAction="#prueba" text="Flareon" />
+          <MenuItem fx:id="MIPorygon" mnemonicParsing="false" onAction="#prueba" text="Porygon" />
+          <MenuItem fx:id="MIOmanyte" mnemonicParsing="false" onAction="#prueba" text="Omanyte" />
+          <MenuItem fx:id="MIOmastar" mnemonicParsing="false" onAction="#prueba" text="Omastar" />
+          <MenuItem fx:id="MIKabuto" mnemonicParsing="false" onAction="#prueba" text="Kabuto" />
+          <MenuItem fx:id="MIKabutops" mnemonicParsing="false" onAction="#prueba" text="Kabutops" />
+          <MenuItem fx:id="MIAerodactyl" mnemonicParsing="false" onAction="#prueba" text="Aerodactyl" />
+          <MenuItem fx:id="MISnorlax" mnemonicParsing="false" onAction="#prueba" text="Snorlax" />
+          <MenuItem fx:id="MIArticuno" mnemonicParsing="false" onAction="#prueba" text="Articuno" />
+          <MenuItem fx:id="MIZapdos" mnemonicParsing="false" onAction="#prueba" text="Zapdos" />
+          <MenuItem fx:id="MIMoltres" mnemonicParsing="false" onAction="#prueba" text="Moltres" />
+          <MenuItem fx:id="MIDratini" mnemonicParsing="false" onAction="#prueba" text="Dratini" />
+          <MenuItem fx:id="MIDragonair" mnemonicParsing="false" onAction="#prueba" text="Dragonair" />
+          <MenuItem fx:id="MIDragonite" mnemonicParsing="false" onAction="#prueba" text="Dragonite" />
+          <MenuItem fx:id="MIMewtwo" mnemonicParsing="false" onAction="#prueba" text="Mewtwo" />
+          <MenuItem fx:id="MIMew" mnemonicParsing="false" onAction="#prueba" text="Mew" />
         </items>
       </MenuButton>
-      <GridPane layoutX="360.0" layoutY="120.0" prefHeight="85.0" prefWidth="195.0" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="120.0">
+      <GridPane fx:id="GPpropiedades" layoutX="360.0" layoutY="120.0" prefHeight="85.0" prefWidth="195.0" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="360.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="120.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="94.0" minWidth="10.0" prefWidth="92.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.0" minWidth="10.0" prefWidth="106.0" />
@@ -36,20 +190,20 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Peso" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Altura" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ataque Principal" GridPane.rowIndex="4" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="nombrePokemon" GridPane.columnIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="pesoPokemon" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="alturaPokemon" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="tipoPokemon" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ataquePokemon" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Text fx:id="TnombreFijo" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+            <Text fx:id="TpesoFijo" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso" GridPane.rowIndex="1" />
+            <Text fx:id="TalturaFijo" strokeType="OUTSIDE" strokeWidth="0.0" text="Altura" GridPane.rowIndex="2" />
+            <Text fx:id="TtipoFijo" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo" GridPane.rowIndex="3" />
+            <Text fx:id="TataquePrincipalFijo" strokeType="OUTSIDE" strokeWidth="0.0" text="Ataque Principal" GridPane.rowIndex="4" />
+            <Text fx:id="TnombreVariable" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+            <Text fx:id="TpesoVariable" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text fx:id="TalturaVariable" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text fx:id="TtipoVariable" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text fx:id="TataquePrincipalVariable" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ScrollBar layoutX="70.0" layoutY="293.0" prefHeight="17.0" prefWidth="115.0" styleClass="bgElementRed" />
-      <Button layoutX="437.0" layoutY="265.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="125.0" styleClass="bgElementRed" text="Buscar" />
-      <Button fx:id="BTReset" layoutX="524.0" layoutY="289.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="23.0" styleClass="background" />
+      <ScrollBar fx:id="SBzoom" layoutX="70.0" layoutY="293.0" prefHeight="17.0" prefWidth="115.0" styleClass="bgElementRed" />
+      <Button fx:id="BTbuscar" layoutX="437.0" layoutY="265.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="125.0" styleClass="bgElementRed" text="Buscar" />
+      <Button fx:id="BTreset" layoutX="524.0" layoutY="289.0" mnemonicParsing="false" onAction="#Reset" prefHeight="25.0" prefWidth="23.0" styleClass="background" />
    </children>
 </AnchorPane>
