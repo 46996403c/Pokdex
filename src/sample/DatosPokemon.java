@@ -8,10 +8,14 @@ public class DatosPokemon {
         //control.IVsprite.getImage();
         //control.TAinfo.setText("HOLAAA");
         //URLbase;
+        //System.out.print(imagen+pokeImagen+extImagen);
     }
     public void Buscar(){
 
     }
 
+    public void Reset(){
+
+    }
 
 }
