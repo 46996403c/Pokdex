@@ -658,17 +658,12 @@ public class Datos {
         System.out.println(nombre2);
 
         LlamadaApi();
-
-
-
-
     }
 
     public void LlamadaApi() throws IOException, JSONException {
         System.out.println("http://pokeapi.co/media/img/"+ this.ID +".png");
         Image imgPoke = new Image("http://pokeapi.co/media/img/"+ this.ID +".png");
         IVsprite.setImage(imgPoke);
-
 
         MBseleccionarPokemon.setText(nombre2);
 

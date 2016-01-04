@@ -5,8 +5,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollBar;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -30,6 +32,8 @@ public class Controller extends Datos {
 
     public void Exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("file:src\\sample\\imagenes\\icono_alert.png"));
         alert.setTitle("Apagar Pokedex");
         alert.setHeaderText("Seguro que quires apagar la pokedex y salir?");
         alert.setContentText("Pulsa Acptar para salir.\nPulsa Cancelar para volver a la pokedex.");
@@ -40,9 +44,13 @@ public class Controller extends Datos {
     }
     public void Info(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Information Dialog");
-        alert.setHeaderText("Look, an Information Dialog");
-        alert.setContentText("I have a great message for you!");
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("file:src\\sample\\imagenes\\icono_alert.png"));
+        alert.setTitle("Informacion");
+        alert.setHeaderText("Pokedex de I generacion");
+        alert.setContentText("Pokedex de la pimera generacion con los 151 pokemons originales." +
+                "\nSe necesita conexion a internet para poder ver la informacion referente a los pokemons." +
+                "\nPrograma creado por oscarXIII");
         alert.showAndWait();
     }
     public void Random() throws IOException, JSONException {
