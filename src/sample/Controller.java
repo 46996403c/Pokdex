@@ -3,26 +3,17 @@ package sample;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.json.JSONException;
 
 import java.io.IOException;
-import java.net.IDN;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Random;
 
@@ -82,6 +73,7 @@ public class Controller extends Datos {
                 e1.printStackTrace();
             }
             try {
+                assert u != null;
                 java.awt.Desktop.getDesktop().browse(u);
             } catch (IOException e1) {
                 e1.printStackTrace();
@@ -116,7 +108,7 @@ public class Controller extends Datos {
         MBseleccionarPokemon.setText(obj.getString("name"));
     }
     public void SiguientePokemon() throws IOException, JSONException {
-        if (ID==""){
+        if (Objects.equals(ID, "")){
             ID ="0";
         }
         IDnum = Integer.parseInt(ID);
@@ -130,7 +122,7 @@ public class Controller extends Datos {
         MBseleccionarPokemon.setText(obj.getString("name"));
     }
     public void AnteriorPokemon() throws IOException, JSONException {
-        if (ID==""){
+        if (Objects.equals(ID, "")){
             ID ="1";
         }
         IDnum = Integer.parseInt(ID);
@@ -147,12 +139,9 @@ public class Controller extends Datos {
         IVsprite.setFitWidth(120D);
         IVsprite.setFitHeight(120D);
         SBzoom.setValue(120D);
-        SBzoom.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                IVsprite.setFitWidth(newValue.intValue());
-                IVsprite.setFitHeight(newValue.intValue());
-            }
+        SBzoom.valueProperty().addListener((observable, oldValue, newValue) -> {
+            IVsprite.setFitWidth(newValue.intValue());
+            IVsprite.setFitHeight(newValue.intValue());
         });
     }
 }

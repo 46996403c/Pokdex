@@ -675,7 +675,7 @@ public class Datos {
 
         // read from the URL
         Scanner scan = new Scanner(urlApi.openStream());
-        String str = new String();
+        String str = "";
         while (scan.hasNext())
             str += scan.nextLine();
         scan.close();
