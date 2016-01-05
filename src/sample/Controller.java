@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -29,6 +30,9 @@ public class Controller extends Datos {
     public Button BTbuscar;
     public Button BTreset;
 
+    public double posIni = 0;
+    public double posFin = 100;
+
 
     public void Exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -42,6 +46,9 @@ public class Controller extends Datos {
             Platform.exit();
         }
     }
+    public void Cerrar(){
+        System.exit(0);
+    }
     public void Info(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -53,6 +60,10 @@ public class Controller extends Datos {
                 "\nPrograma creado por oscarXIII");
         alert.showAndWait();
     }
+    public void Minimizar(){
+        Stage stage = (Stage) Main.scena.getScene().getWindow();
+        stage.setIconified(true);
+    }
     public void Random() throws IOException, JSONException {
         Random rand = new Random();
         int ran = rand.nextInt(151);
@@ -61,4 +72,5 @@ public class Controller extends Datos {
         System.out.println(ID);
         MBseleccionarPokemon.setText(obj.getString("name"));
     }
+
 }

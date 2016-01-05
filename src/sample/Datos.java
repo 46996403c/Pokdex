@@ -15,9 +15,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Scanner;
 
-/**
- * Created by Usuario on 04/01/2016.
- */
 public class Datos {
     public ImageView IVsprite;
     public TextField TFescribirPokemon;
@@ -186,7 +183,7 @@ public class Datos {
     public JSONObject obj;
 
     public void Reset(){
-        TFescribirPokemon.clear();
+        //TFescribirPokemon.clear();
         TnombreVariable.setText("");
         TpesoVariable.setText("");
         TalturaVariable.setText("");
