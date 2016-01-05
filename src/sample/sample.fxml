@@ -213,5 +213,7 @@
       <Button fx:id="BTCerrar" layoutX="90.0" layoutY="2.0" mnemonicParsing="false" onAction="#Cerrar" styleClass="background" />
       <Button fx:id="BTminimizar" layoutX="113.0" layoutY="2.0" mnemonicParsing="false" onAction="#Minimizar" prefHeight="25.0" prefWidth="23.0" styleClass="background" />
       <Button fx:id="BTinfo2" layoutX="141.0" layoutY="2.0" mnemonicParsing="false" onAction="#Info" styleClass="background" />
+      <Button fx:id="BTantPokemon" layoutX="379.0" layoutY="289.0" mnemonicParsing="false" onAction="#AnteriorPokemon" prefHeight="25.0" prefWidth="25.0" styleClass="background" />
+      <Button fx:id="BTsigPokemon" layoutX="407.0" layoutY="289.0" mnemonicParsing="false" onAction="#SiguientePokemon" prefHeight="25.0" prefWidth="25.0" styleClass="background" />
    </children>
 </AnchorPane>

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.net.IDN;
 import java.util.Optional;
 import java.util.Random;
 
@@ -30,9 +31,7 @@ public class Controller extends Datos {
     public Button BTbuscar;
     public Button BTreset;
 
-    public double posIni = 0;
-    public double posFin = 100;
-
+    public int IDnum;
 
     public void Exit(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -72,5 +71,32 @@ public class Controller extends Datos {
         System.out.println(ID);
         MBseleccionarPokemon.setText(obj.getString("name"));
     }
-
+    public void SiguientePokemon() throws IOException, JSONException {
+        if (ID==""){
+            ID ="0";
+        }
+        IDnum = Integer.parseInt(ID);
+        int IDsig = IDnum + 1;
+        if (IDsig > 151){
+            IDsig=151;
+        }
+        ID = String.valueOf(IDsig);
+        LlamadaApi();
+        System.out.println(ID);
+        MBseleccionarPokemon.setText(obj.getString("name"));
+    }
+    public void AnteriorPokemon() throws IOException, JSONException {
+        if (ID==""){
+            ID ="1";
+        }
+        IDnum = Integer.parseInt(ID);
+        int IDant = IDnum - 1;
+        if (IDant < 1){
+            IDant=1;
+        }
+        ID = String.valueOf(IDant);
+        LlamadaApi();
+        System.out.println(ID);
+        MBseleccionarPokemon.setText(obj.getString("name"));
+    }
 }

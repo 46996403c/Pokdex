@@ -191,6 +191,7 @@ public class Datos {
         TespecieVariable.setText("");
         MBseleccionarPokemon.setText("Selecciona un Pokemon");
         IVsprite.setImage(null);
+        ID="";
     }
 
     public void VerPokemons (javafx.event.ActionEvent actionEventPokmon) throws ParserConfigurationException, IOException, SAXException, JSONException {
