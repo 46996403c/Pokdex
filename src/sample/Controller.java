@@ -2,13 +2,17 @@ package sample;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.json.JSONException;
 
@@ -99,4 +103,5 @@ public class Controller extends Datos {
         System.out.println(ID);
         MBseleccionarPokemon.setText(obj.getString("name"));
     }
+
 }

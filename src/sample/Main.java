@@ -1,16 +1,29 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
+    private double xOffset = 0;
+    private double yOffset = 0;
+    private static class Delta {
+        double x, y;
+    }
+    final Delta dragDelta = new Delta();
+    final BooleanProperty inDrag = new SimpleBooleanProperty(false);
+
     public static Stage scena;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         scena = primaryStage;
@@ -19,6 +32,29 @@ public class Main extends Application {
         root.setStyle("-fx-background-color: transparent;");
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setScene(new Scene(root, 600, 400, Color.TRANSPARENT));
+
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                dragDelta.x = primaryStage.getX() - event.getScreenX();
+                dragDelta.y = primaryStage.getY() - event.getScreenY();
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() + dragDelta.x);
+                primaryStage.setY(event.getScreenY() + dragDelta.y);
+                primaryStage.getWidth();
+                primaryStage.getHeight();
+                primaryStage.getX();
+                primaryStage.getY();
+                inDrag.set(true);
+            }
+        });
+
         primaryStage.show();
     }
 

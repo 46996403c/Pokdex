@@ -193,7 +193,6 @@ public class Datos {
         IVsprite.setImage(null);
         ID="";
     }
-
     public void VerPokemons (javafx.event.ActionEvent actionEventPokmon) throws ParserConfigurationException, IOException, SAXException, JSONException {
         Reset();
         if (actionEventPokmon.getSource().equals(MIBulbasaur)) {
@@ -657,7 +656,6 @@ public class Datos {
 
         LlamadaApi();
     }
-
     public void LlamadaApi() throws IOException, JSONException {
         System.out.println("http://pokeapi.co/media/img/"+ this.ID +".png");
         Image imgPoke = new Image("http://pokeapi.co/media/img/"+ this.ID +".png");
