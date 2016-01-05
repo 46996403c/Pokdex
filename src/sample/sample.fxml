@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -12,7 +13,6 @@
             <Image url="@imagenes/pokedex2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="IVsprite" fitHeight="129.0" fitWidth="213.0" layoutX="42.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="42.0" AnchorPane.rightAnchor="345.0" AnchorPane.topAnchor="111.0" />
       <Button fx:id="BTinfo" layoutX="359.0" layoutY="334.0" mnemonicParsing="false" onAction="#Info" prefHeight="37.0" prefWidth="90.0" styleClass="background" text="Informacion" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="334.0" />
       <Button fx:id="BTapagar" layoutX="465.0" layoutY="334.0" mnemonicParsing="false" onAction="#Exit" prefHeight="37.0" prefWidth="83.0" styleClass="background" text="Apagar" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="465.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="334.0" />
       <Button fx:id="BTrandom" layoutX="61.0" layoutY="334.0" mnemonicParsing="false" onAction="#Random" prefHeight="37.0" prefWidth="115.0" styleClass="background" text="Pokemon Random" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="334.0" />
@@ -200,7 +200,7 @@
             <Text fx:id="TespecieVariable" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
-      <ScrollBar fx:id="SBzoom" layoutX="70.0" layoutY="293.0" prefHeight="17.0" prefWidth="115.0" styleClass="bgElementRed" AnchorPane.bottomAnchor="90.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="293.0" />
+      <Slider fx:id="SBzoom" blockIncrement="5.0" layoutX="71.0" layoutY="289.0" max="600.0" min="120.0" prefHeight="25.0" prefWidth="132.0" styleClass="bgElementRed" />
       <Button fx:id="BTbuscar" disable="true" layoutX="437.0" layoutY="265.0" mnemonicParsing="false" opacity="0.0" prefHeight="16.0" prefWidth="125.0" styleClass="bgElementRed" text="Buscar" />
       <Button fx:id="BTreset" layoutX="524.0" layoutY="289.0" mnemonicParsing="false" onAction="#Reset" prefHeight="25.0" prefWidth="23.0" styleClass="background" AnchorPane.bottomAnchor="86.0" AnchorPane.leftAnchor="524.0" AnchorPane.rightAnchor="53.0" AnchorPane.topAnchor="289.0" />
       <Button fx:id="BTCerrar" layoutX="90.0" layoutY="2.0" mnemonicParsing="false" onAction="#Cerrar" styleClass="background" />
@@ -208,5 +208,11 @@
       <Button fx:id="BTinfo2" layoutX="141.0" layoutY="2.0" mnemonicParsing="false" onAction="#Info" styleClass="background" />
       <Button fx:id="BTantPokemon" layoutX="379.0" layoutY="289.0" mnemonicParsing="false" onAction="#AnteriorPokemon" prefHeight="25.0" prefWidth="25.0" styleClass="background" />
       <Button fx:id="BTsigPokemon" layoutX="407.0" layoutY="289.0" mnemonicParsing="false" onAction="#SiguientePokemon" prefHeight="25.0" prefWidth="25.0" styleClass="background" />
+      <ScrollPane fx:id="SPimg" layoutX="44.0" layoutY="115.0" prefHeight="122.0" prefWidth="206.0">
+         <content>
+            <ImageView fx:id="IVsprite" fitHeight="119.0" fitWidth="202.0" pickOnBounds="true" preserveRatio="true" />
+         </content>
+      </ScrollPane>
+      <Button fx:id="BTresetZoom" layoutX="36.0" layoutY="284.0" mnemonicParsing="false" onAction="#ResetZoom" prefHeight="30.0" prefWidth="32.0" styleClass="background" />
    </children>
 </AnchorPane>

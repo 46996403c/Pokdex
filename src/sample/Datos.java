@@ -2,6 +2,7 @@ package sample;
 
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,7 @@ public class Datos {
     public Text TalturaVariable;
     public Text TtipoVariable;
     public Text TespecieVariable;
+    public Slider SBzoom;
     //=============151 POKEMON===================
     public MenuItem MIBulbasaur;
     public MenuItem MIIvysaur;
@@ -192,6 +194,10 @@ public class Datos {
         MBseleccionarPokemon.setText("Selecciona un Pokemon");
         IVsprite.setImage(null);
         ID="";
+        ResetZoom();
+    }
+    public void ResetZoom(){
+        SBzoom.setValue(120);
     }
     public void VerPokemons (javafx.event.ActionEvent actionEventPokmon) throws ParserConfigurationException, IOException, SAXException, JSONException {
         Reset();

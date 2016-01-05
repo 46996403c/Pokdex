@@ -1,14 +1,14 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ScrollBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -31,7 +31,7 @@ public class Controller extends Datos {
     public Text TalturaFijo;
     public Text TtipoFijo;
     public Text TespecieFijo;
-    public ScrollBar SBzoom;
+    public Slider SBzoom;
     public Button BTbuscar;
     public Button BTreset;
 
@@ -103,5 +103,16 @@ public class Controller extends Datos {
         System.out.println(ID);
         MBseleccionarPokemon.setText(obj.getString("name"));
     }
-
+    public void initialize() {
+        IVsprite.setFitWidth(120D);
+        IVsprite.setFitHeight(120D);
+        SBzoom.setValue(120D);
+        SBzoom.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                IVsprite.setFitWidth(newValue.intValue());
+                IVsprite.setFitHeight(newValue.intValue());
+            }
+        });
+    }
 }
